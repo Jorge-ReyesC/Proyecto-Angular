@@ -1,6 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//Servicios
+import { DashboardService } from './servicios/dashboard.service';
+import { BasictableService } from './servicios/basictable.service';
+
+
+//rutaS
+import { APP_ROUTING } from './app.routes';
+import { from } from 'rxjs';
+import { AsideComponent } from './aside/aside.component';
+import { TopbarComponent } from './topbar/topbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,12 +23,7 @@ import { BlankComponent } from './blank/blank.component';
 import { Error404Component } from './error404/error404.component';
 import { FontawesomeComponent } from './fontawesome/fontawesome.component';
 import { MapgoogleComponent } from './mapgoogle/mapgoogle.component';
-//rutaS
-import { APP_ROUTING } from './app.routes';
-import { from } from 'rxjs';
-import { AsideComponent } from './aside/aside.component';
-import { TopbarComponent } from './topbar/topbar.component';
-import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +44,10 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    DashboardService,
+    BasictableService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

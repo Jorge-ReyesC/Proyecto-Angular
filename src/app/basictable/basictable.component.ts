@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BasictableService, Tabla } from '../servicios/basictable.service';
+
 
 @Component({
   selector: 'app-basictable',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basictable.component.css']
 })
 export class BasictableComponent implements OnInit {
+  tabla:Tabla[]=[];
 
-  constructor() { }
+  constructor(private _basictableService:BasictableService) {
+    this.tabla=_basictableService.gettabla();
+
+   }
 
   ngOnInit(): void {
   }
