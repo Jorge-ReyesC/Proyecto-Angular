@@ -156,7 +156,7 @@
                                           <td class="txt-oflo">{{venta.nombre}}</td>
                                           <td>{{venta.estado}}</td>
                                           <td class="txt-oflo">{{venta.fecha}}</td>
-                                          <td><span class="text-success">${{venta.precio}}</span></td>
+                                          <td><span class="{{venta.colorprecio}}">${{venta.precio}}</span></td>
                                       </tr>
 
                                   </tbody>
@@ -175,45 +175,17 @@
                           <div class="card-body">
                               <h3 class="box-title mb-0">Comentarios Recientes</h3>
                           </div>
-                          <div class="comment-widgets">
+                          <div *ngFor="let comentarios of comentarios" class="comment-widgets">
                               <!-- Comment Row -->
                               <div class="d-flex flex-row comment-row p-3 mt-0">
-                                  <div class="p-2"><img src="../../assets/plugins/images/users/varun.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                  <div class="p-2"><img [src]= "comentarios.imagen" alt="user" width="50" class="rounded-circle"></div>
                                   <div class="comment-text ps-2 ps-md-3 w-100">
-                                      <h5 class="font-medium">{{this.comentarios[0].nombres}}</h5>
-                                      <span class="mb-3 d-block">{{this.comentarios[0].comentario}}</span>
+                                      <h5 class="font-medium">{{comentarios.nombres}}</h5>
+                                      <span class="mb-3 d-block">{{comentarios.comentario}}</span>
                                       <div class="comment-footer d-md-flex align-items-center">
-                                           <span class="badge bg-primary rounded">{{this.comentarios[0].estados}}</span>
+                                           <span class="badge {{comentarios.colorestado}} rounded">{{comentarios.estados}}</span>
 
-                                          <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">{{this.comentarios[0].fecha}}</div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <!-- Comment Row -->
-                              <div class="d-flex flex-row comment-row p-3">
-                                  <div class="p-2"><img src="../../assets/plugins/images/users/genu.jpg" alt="user" width="50" class="rounded-circle"></div>
-                                  <div class="comment-text ps-2 ps-md-3 active w-100">
-                                      <h5 class="font-medium">{{this.comentarios[1].nombres}}</h5>
-                                      <span class="mb-3 d-block">{{this.comentarios[1].comentario}} </span>
-                                      <div class="comment-footer d-md-flex align-items-center">
-
-                                          <span class="badge bg-success rounded">{{this.comentarios[1].estados}}</span>
-
-                                          <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">{{this.comentarios[1].fecha}}</div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <!-- Comment Row -->
-                              <div class="d-flex flex-row comment-row p-3">
-                                  <div class="p-2"><img src="../../assets/plugins/images/users/ritesh.jpg" alt="user" width="50" class="rounded-circle"></div>
-                                  <div class="comment-text ps-2 ps-md-3 w-100">
-                                      <h5 class="font-medium">{{this.comentarios[2].nombres}}</h5>
-                                      <span class="mb-3 d-block">{{this.comentarios[2].comentario}} </span>
-                                      <div class="comment-footer d-md-flex align-items-center">
-
-                                          <span class="badge rounded bg-danger">{{this.comentarios[2].estados}}</span>
-
-                                          <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">{{this.comentarios[2].fecha}}</div>
+                                          <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">{{comentarios.fecha}}</div>
                                       </div>
                                   </div>
                               </div>
@@ -225,10 +197,10 @@
                           <div class="card-heading">
                               <h3 class="box-title mb-0">Lista Del Chat</h3>
                           </div>
-                          <div class="card-body">
-                              <ul class="chatonline">
-                                  <li>
-                                      <div class="call-chat">
+                          <div class="card-body" >
+                              <ul class="chatonline" >
+                                  <li *ngFor="let chat of chat">
+                                      <div class="call-chat" >
                                           <button class="btn btn-success text-white btn-circle btn" type="button">
                                               <i class="fas fa-phone"></i>
                                           </button>
@@ -236,92 +208,11 @@
                                               <i class="far fa-comments text-white"></i>
                                           </button>
                                       </div>
-                                      <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              src="../../assets/plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                      <a  href="javascript:void(0)" class="d-flex align-items-center"><img
+                                              [src]="chat.photoperfil" alt="user-img" class="img-circle">
                                           <div class="ms-2">
-                                              <span class="text-dark">{{this.chat[0].nombres}}<small
-                                                      class="d-block text-success d-block">{{this.chat[0].estados}}</small></span>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <div class="call-chat">
-                                          <button class="btn btn-success text-white btn-circle btn" type="button">
-                                              <i class="fas fa-phone"></i>
-                                          </button>
-                                          <button class="btn btn-info btn-circle btn" type="button">
-                                              <i class="far fa-comments text-white"></i>
-                                          </button>
-                                      </div>
-                                      <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              src="../../assets/plugins/images/users/genu.jpg" alt="user-img" class="img-circle">
-                                          <div class="ms-2">
-                                              <span class="text-dark">{{this.chat[1].nombres}} <small class="d-block text-warning">{{this.chat[1].estados}}</small></span>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <div class="call-chat">
-                                          <button class="btn btn-success text-white btn-circle btn" type="button">
-                                              <i class="fas fa-phone"></i>
-                                          </button>
-                                          <button class="btn btn-info btn-circle btn" type="button">
-                                              <i class="far fa-comments text-white"></i>
-                                          </button>
-                                      </div>
-                                      <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              src="../../assets/plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle">
-                                          <div class="ms-2">
-                                              <span class="text-dark">{{this.chat[2].nombres}} <small class="d-block text-danger">{{this.chat[2].estados}}</small></span>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <div class="call-chat">
-                                          <button class="btn btn-success text-white btn-circle btn" type="button">
-                                              <i class="fas fa-phone"></i>
-                                          </button>
-                                          <button class="btn btn-info btn-circle btn" type="button">
-                                              <i class="far fa-comments text-white"></i>
-                                          </button>
-                                      </div>
-                                      <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              src="../../assets/plugins/images/users/arijit.jpg" alt="user-img" class="img-circle">
-                                          <div class="ms-2">
-                                              <span class="text-dark">{{this.chat[3].nombres}} <small class="d-block text-muted">{{this.chat[3].estados}}</small></span>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <div class="call-chat">
-                                          <button class="btn btn-success text-white btn-circle btn" type="button">
-                                              <i class="fas fa-phone"></i>
-                                          </button>
-                                          <button class="btn btn-info btn-circle btn" type="button">
-                                              <i class="far fa-comments text-white"></i>
-                                          </button>
-                                      </div>
-                                      <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              src="../../assets/plugins/images/users/govinda.jpg" alt="user-img"
-                                              class="img-circle">
-                                          <div class="ms-2">
-                                              <span class="text-dark">{{this.chat[4].nombres}} <small class="d-block text-success">{{this.chat[4].estados}}</small></span>
-                                          </div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <div class="call-chat">
-                                          <button class="btn btn-success text-white btn-circle btn" type="button">
-                                              <i class="fas fa-phone"></i>
-                                          </button>
-                                          <button class="btn btn-info btn-circle btn" type="button">
-                                              <i class="far fa-comments text-white"></i>
-                                          </button>
-                                      </div>
-                                      <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              src="../../assets/plugins/images/users/hritik.jpg" alt="user-img" class="img-circle">
-                                          <div class="ms-2">
-                                              <span class="text-dark">{{this.chat[5].nombres}}<small class="d-block text-success">{{this.chat[5].estados}}</small></span>
+                                              <span class="text-dark">{{chat.nombres}}<small
+                                                      class="d-block {{chat.colorchat}} d-block">{{chat.estados}}</small></span>
                                           </div>
                                       </a>
                                   </li>

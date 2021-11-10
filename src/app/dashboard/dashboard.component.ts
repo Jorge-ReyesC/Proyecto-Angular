@@ -18,11 +18,7 @@ export class DashboardComponent implements OnInit {
     this.ventas=_dashboardService.getVentas();
     this.comentarios=_dashboardService.getComentario();
     this.chat=_dashboardService.getChat();
-
-
    }
-
-
   ngOnInit(): void {
   }
 
