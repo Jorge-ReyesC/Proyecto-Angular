@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasictableService, Tabla } from '../servicios/basictable.service';
+import {EquipoService} from '../servicios/equipo.service';
 
 
 @Component({
@@ -9,9 +10,14 @@ import { BasictableService, Tabla } from '../servicios/basictable.service';
 })
 export class BasictableComponent implements OnInit {
   tabla:Tabla[]=[];
+  listaEquipo:any[]=[];
 
-  constructor(private _basictableService:BasictableService) {
-    this.tabla=_basictableService.gettabla();
+  constructor(private _equipoService:EquipoService) {
+    // this.tabla=_basictableService.gettabla();
+    this._equipoService.getEquipo().subscribe((data:any)=>{
+      this.listaEquipo=data;
+      console.log(data);
+    });
 
    }
 

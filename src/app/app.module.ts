@@ -24,6 +24,7 @@ import { BlankComponent } from './blank/blank.component';
 import { Error404Component } from './error404/error404.component';
 import { FontawesomeComponent } from './fontawesome/fontawesome.component';
 import { MapgoogleComponent } from './mapgoogle/mapgoogle.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { MapgoogleComponent } from './mapgoogle/mapgoogle.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     APP_ROUTING
   ],

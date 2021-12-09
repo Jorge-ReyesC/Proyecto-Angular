@@ -129,34 +129,23 @@
                       <div class="white-box">
                           <div class="d-md-flex mb-3">
                               <h3 class="box-title mb-0">Ventas Recientes</h3>
-                              <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
-                                  <select class="form-select shadow-none row border-top">
-                                      <option>March 2021</option>
-                                      <option>April 2021</option>
-                                      <option>May 2021</option>
-                                      <option>June 2021</option>
-                                      <option>July 2021</option>
-                                  </select>
-                              </div>
                           </div>
                           <div class="table-responsive">
-                              <table class="table no-wrap">
+                              <table class="table no-wrap" *ngFor="let clientes of listaClientes" >
                                   <thead>
                                       <tr>
-                                          <th class="border-top-0">#</th>
+                                          <th class="border-top-0">#ID</th>
                                           <th class="border-top-0">Nombre</th>
-                                          <th class="border-top-0">Estado</th>
-                                          <th class="border-top-0">Fecha</th>
-                                          <th class="border-top-0">Precio</th>
+                                          <th class="border-top-0">Apellido</th>
+                                          <th class="border-top-0">Sueldo</th>
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr *ngFor="let venta of ventas; index as i">
+                                      <tr *ngFor="let cliente of clientes; index as i">
                                           <td>{{i+1}}</td>
-                                          <td class="txt-oflo">{{venta.nombre}}</td>
-                                          <td>{{venta.estado}}</td>
-                                          <td class="txt-oflo">{{venta.fecha}}</td>
-                                          <td><span class="{{venta.colorprecio}}">${{venta.precio}}</span></td>
+                                          <td class="txt-oflo">{{cliente.NOMBRE}}</td>
+                                          <td>{{cliente.APELLIDO}}</td>
+                                          <td class="txt-oflo">{{cliente.SUELDO}}</td>
                                       </tr>
 
                                   </tbody>
@@ -175,51 +164,51 @@
                           <div class="card-body">
                               <h3 class="box-title mb-0">Comentarios Recientes</h3>
                           </div>
-                          <div *ngFor="let comentarios of comentarios" class="comment-widgets">
+                          <div *ngFor="let comentarios of listaComentarios" class="comment-widgets">
                               <!-- Comment Row -->
-                              <div class="d-flex flex-row comment-row p-3 mt-0">
-                                  <div class="p-2"><img [src]= "comentarios.imagen" alt="user" width="50" class="rounded-circle"></div>
+                              <div class="d-flex flex-row comment-row p-3 mt-0" *ngFor="let comentario of comentarios">
+                                  <div class="p-2"><img src= "../../assets/plugins/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
                                   <div class="comment-text ps-2 ps-md-3 w-100">
-                                      <h5 class="font-medium">{{comentarios.nombres}}</h5>
-                                      <span class="mb-3 d-block">{{comentarios.comentario}}</span>
+                                      <h5 class="font-medium">{{comentario.nombre}}</h5>
+                                      <span class="mb-3 d-block">{{comentario.comentario}}</span>
                                       <div class="comment-footer d-md-flex align-items-center">
-                                           <span class="badge {{comentarios.colorestado}} rounded">{{comentarios.estados}}</span>
+                                           <span class="badge rounded bg-primary ">{{comentario.estado}}</span>
 
-                                          <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">{{comentarios.fecha}}</div>
+                                          <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">{{comentario.fecha}}</div>
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </div>
                   </div>
-                  <div class="col-lg-4 col-md-12 col-sm-12">
-                      <div class="card white-box p-0">
-                          <div class="card-heading">
-                              <h3 class="box-title mb-0">Lista Del Chat</h3>
-                          </div>
-                          <div class="card-body" >
-                              <ul class="chatonline" >
-                                  <li *ngFor="let chat of chat">
-                                      <div class="call-chat" >
-                                          <button class="btn btn-success text-white btn-circle btn" type="button">
-                                              <i class="fas fa-phone"></i>
-                                          </button>
-                                          <button class="btn btn-info btn-circle btn" type="button">
-                                              <i class="far fa-comments text-white"></i>
-                                          </button>
-                                      </div>
-                                      <a  href="javascript:void(0)" class="d-flex align-items-center"><img
-                                              [src]="chat.photoperfil" alt="user-img" class="img-circle">
-                                          <div class="ms-2">
-                                              <span class="text-dark">{{chat.nombres}}<small
-                                                      class="d-block {{chat.colorchat}} d-block">{{chat.estados}}</small></span>
-                                          </div>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
+                  <div class="col-lg-4 col-md-12 col-sm-12" *ngFor="let chats of listaChat">
+                    <div class="card white-box p-0">
+                        <div class="card-heading">
+                            <h3 class="box-title mb-0">Lista Del Chat</h3>
+                        </div>
+                        <div class="card-body" >
+                            <ul class="chatonline" *ngFor="let chat of chats">
+                                <li >
+                                    <div class="call-chat">
+                                        <button class="btn btn-success text-white btn-circle btn" type="button">
+                                            <i class="fas fa-phone"></i>
+                                        </button>
+                                        <button class="btn btn-info btn-circle btn" type="button">
+                                            <i class="far fa-comments text-white"></i>
+                                        </button>
+                                    </div>
+                                    <a href="javascript:void(0)" class="d-flex align-items-center"><img
+                                            src="../../assets/plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                        <div class="ms-2">
+                                            <span class="text-dark">{{chat.nombres_apellidos}}<small
+                                                    class="d-block text-success d-block">{{chat.estado}}</small></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                   <!-- /.col -->
               </div>
           </div>

@@ -27,7 +27,7 @@
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Basic Table</h4>
+                        <h4 class="page-title">Tabla De Encargados Del Equipo</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -55,10 +55,10 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Basic Table</h3>
+                            <h3 class="box-title">Tabla del Equipo Tecnico</h3>
                             <p class="text-muted">Add class <code>.table</code></p>
                             <div class="table-responsive">
-                                <table class="table text-nowrap">
+                                <table class="table text-nowrap" *ngFor="let tabla of listaEquipo">
                                     <thead>
                                         <tr>
                                             <th class="border-top-0">#</th>
@@ -69,12 +69,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let tabla of tabla; index as i">
+                                        <tr *ngFor="let tablas of tabla; index as i">
                                             <td>{{i+1}}</td>
-                                            <td>{{tabla.primer_nombre}}</td>
-                                            <td>{{tabla.segundo_nombre}}</td>
-                                            <td>{{tabla.usuario}}</td>
-                                            <td>{{tabla.rol}}</td>
+                                            <td>{{tablas.nombre}}</td>
+                                            <td>{{tablas.apellido}}</td>
+                                            <td>{{tablas.usuario}}</td>
+                                            <td>{{tablas.rol}}</td>
                                         </tr>
 
                                     </tbody>

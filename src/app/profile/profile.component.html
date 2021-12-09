@@ -155,6 +155,41 @@
               <!-- End Right sidebar -->
               <!-- ============================================================== -->
           </div>
+          <div class="table-responsive">
+            <table class="table text-nowrap">
+              <li *ngFor="let profiles of listaPerfile">
+                <thead>
+                    <tr>
+                        <th class="border-top-0"># ID</th>
+                        <th class="border-top-0">Nombre</th>
+                        <th class="border-top-0">Fecha De Nacimiento</th>
+                        <th class="border-top-0">Pais</th>
+                        <th class="border-top-0">Sexo</th>
+                        <th class="border-top-0">Curso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let profile of profiles; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{profile.NOMBRE}}</td>
+                        <td>{{profile.FECHA_NACIMIENTO}}</td>
+                        <td>{{profile.PAIS}}</td>
+                        <td>{{profile.SEXO}}</td>
+                        <td>{{profile.CURSO}}</td>
+                    </tr>
+                </tbody>
+              </li>
+            </table>
+        </div>
+          <!-- <ul>
+            <li *ngFor="let profiles of listaPerfile">
+              <div *ngFor="let profile of profiles">
+                {{profile.NOMBRE}}
+
+              </div>
+
+            </li>
+          </ul> -->
           <!-- ============================================================== -->
           <!-- End Container fluid  -->
           <!-- ============================================================== -->
@@ -164,6 +199,7 @@
       <!-- ============================================================== -->
       <!-- End Page wrapper  -->
       <!-- ============================================================== -->
+
   </div>
   <!-- ============================================================== -->
   <!-- End Wrapper -->
